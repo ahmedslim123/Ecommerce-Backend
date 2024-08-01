@@ -1,0 +1,22 @@
+<!-- Banner Section Begin -->
+<section class="banner set-bg" data-setbg="/assets/images/banner/banner-1.jpg">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-7 col-lg-8 m-auto">
+        <owl-carousel-o [options]="customOptions">
+          <ng-template carouselSlide *ngFor="let slide of slides">
+            <div class="banner__item">
+              
+              <div class="banner__text">
+                <span>{{ slide.collection }}</span>
+                <h1>{{ slide.title }}</h1>
+                <a href="#">Shop now</a>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Banner Section End -->

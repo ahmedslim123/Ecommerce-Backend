@@ -1,0 +1,48 @@
+.banner {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .banner__text {
+    color: #fff;
+    animation: fadeIn 4s ease-in-out;
+  }
+  .banner__text a {
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out;
+  }
+  .banner__text a:hover {
+    background-color: #ff4081;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -60%);
+    }
+  }
+  
+  .owl-carousel .owl-item {
+    animation: fadeIn 1s ease-in-out;
+  }

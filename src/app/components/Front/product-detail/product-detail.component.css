@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+}
+.rating{
+    display: flex;
+    justify-content:center;
+    align-items:center; 
+    flex:auto;
+    gap:10px;
+
+}
+.bi-wrench-adjustable-circle{
+    color: rgb(60, 55, 55);
+}

@@ -1,0 +1,21 @@
+.header__right {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    
+}
+.header__right__auth a {
+    font-size: 15px !important;
+}
+.header__right__auth a:hover {
+    color: #e09090 !important;
+}
+.icon{
+    font-size: 18px;
+}
+.icon:hover{
+    color: #eb9d9d !important;
+}
+.header__menu ul li a{
+    text-decoration: none !important;
+}

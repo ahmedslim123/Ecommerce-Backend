@@ -1,0 +1,77 @@
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-3 col-lg-2">
+                <div class="header__logo">
+                    <a routerLink="/" routerLinkActive="active" ><img [src]="'/assets/images/logo.png'" loading="lazy" alt="Logo"></a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-7">
+                <nav class="header__menu">
+                    <ul>
+                        <li ><a href="./index.html">Home</a></li>
+                        <li><a href="#">Women’s</a></li>
+                        <li><a href="#">Men’s</a></li>
+                        <li>
+                            <a
+                              routerLink="/shop"
+                              routerLinkActive="active"
+                              (click)="onShopLinkClick()"
+                              ariaCurrentWhenActive="page"
+                            >
+                              Shop
+                            </a>
+                          </li>
+                      
+                        <li><a href="#">Pages</a>
+                            <ul class="dropdown">
+                                <li><a routerLink="/product-detail"
+                                       routerLinkActive="active"
+                                       ariaCurrentWhenActive="page">Product Details</a></li>
+                                <li><a routerLink="/shop-cart"
+                                       routerLinkActive="active"
+                                       ariaCurrentWhenActive="page">Shop Cart</a></li>
+                                <li><a routerLink="/checkout"
+                                       routerLinkActive="active"
+                                       ariaCurrentWhenActive="page">Checkout</a></li>
+                                <li><a routerLink="/blog-detail"
+                                       routerLinkActive="active"
+                                       ariaCurrentWhenActive="page">Blog Details</a></li>
+                            </ul>
+                        </li>
+                        <li><a routerLink="/blog"
+                               routerLinkActive="active"
+                               ariaCurrentWhenActive="page">Blog</a></li>
+                        <li><a routerLink="/contact"
+                               routerLinkActive="active"
+                               ariaCurrentWhenActive="page">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__right">
+                    <div class="header__right__auth">
+                        <a  routerLink="/login"
+                            routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Login</a>
+                        <a  routerLink="/register"
+                            routerLinkActive="active"
+                            ariaCurrentWhenActive="page">Register</a>
+                    </div>
+                    <ul class="header__right__widget">
+                        <li><i class="bi bi-search icon"></i></li>
+                        <li><a href="#"><i class=" icon bi bi-heart"></i>
+                        </a></li>
+                        <li><a href="#"><i class="icon bi bi-bag-plus"></i>
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="canvas__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+<!-- Header Section End -->

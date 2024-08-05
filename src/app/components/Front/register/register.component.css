@@ -244,7 +244,7 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 25px;
     background-color: #f7f7f7;
     padding:  55px 55px ;
   }
@@ -787,11 +787,11 @@
       filter: blur(0);
     }
     75% {
-      background-image: url('/assets/images/login back1.jpg');
+      background-image: url('/assets/images/login back1.png');
       filter: blur(0px);
     }
     100% {
-      background-image: url('/assets/images/login back5.jpg');
+      background-image: url('/assets/images/login back5.png');
       filter: blur(0);
     }
   }

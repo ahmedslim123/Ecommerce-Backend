@@ -1,85 +1,186 @@
 <div class="limiter">
     <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-more">
-                <div class="background-blur"></div>
-            </div>
-            <form class="register100-form validate-form">
-                <span class="register100-form-title p-b-43  bounce-in-top">
-                    Register to continue
-                </span>
-                
-                <div class="wrap-input100 validate-input" data-validate="First Name is required">
-                    <input class="input100" type="text" name="First Name" placeholder="First Name">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input" data-validate="Second Name is required">
-                    <input class="input100" type="text" name="Second Name" placeholder="Second Name">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-                    <input class="input100" type="email" name="email" placeholder="Email">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Password is required">
-                    <input class="input100" type="password" name="password" placeholder="Password">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Password confirmation is required">
-                    <input class="input100" type="password" name="confirm-password" placeholder="Confirm Password">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Address is required">
-                    <input class="input100" type="text" name="address" placeholder="Address Line">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Region is required">
-                    <input class="input100" type="text" name="region" placeholder="Region">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="City is required">
-                    <select class="input100 custom-select city-select" name="city">
-                        <option value="" disabled selected >Select City</option>
-                        <option value="City1">Sousse</option>
-                        <option value="City10">Monastir</option>
-                        <option value="City10">Mahdia</option>
-                        <option value="City2">Sfax</option>
-                        <option value="City3">Kairouen</option>
-                        <option value="City4">Tozeur</option>
-                        <option value="City5">Ariana</option>
-                        <option value="City6">Beja</option>
-                        <option value="City7">Nabeul</option>
-                        <option value="City8">Jerba</option>
-                        <option value="City9">Binzart</option>
-                        
-                    </select>
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="wrap-input100 validate-input" data-validate="Zip/Postal Code is required">
-                    <input class="input100" type="text" name="zip-code" placeholder="Zip Code">
-                    <span class="focus-input100"></span>
-                </div>
-
-                <div class="contact100-form-checkbox m-l-4">
-                    <input class="input-checkbox100" id="ckb1" type="checkbox" name="agree-terms" data-validate="You must agree to terms and conditions">
-                    <label class="label-checkbox100" for="ckb1">
-                        I agree to the <a href="#">Terms and Conditions</a>
-                    </label>
-                </div>
-
-                <div class="container-login100-form-btn">
-                    <button class="login100-form-btn" routerLink="/login" routerLinkActive="active" ariaCurrentWhenActive="page">
-                        Register
-                    </button>
-                </div>
-            </form>
+      <div class="wrap-login100">
+        <div class="login100-more">
+          <div class="background-blur"></div>
         </div>
+        <form
+          class="register100-form validate-form"
+          [formGroup]="registerUserForm"
+          (ngSubmit)="onSubmit()"
+          novalidate
+        >
+          <span class="register100-form-title p-b-43 bounce-in-top">
+            Register to continue
+          </span>
+  
+          <div class="wrap-input100 validate-input" data-validate="First Name is required">
+            <input
+              class="input100"
+              type="text"
+              name="firstName"
+              placeholder="First Name"
+              formControlName="firstName"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('firstName')?.invalid && registerUserForm.get('firstName')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('firstName')?.errors?.['required']">First Name is required.</span>
+              <span *ngIf="registerUserForm.get('firstName')?.errors?.['stringOnly']">First Name must contain only letters.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Second Name is required">
+            <input
+              class="input100"
+              type="text"
+              name="secondName"
+              placeholder="Second Name"
+              formControlName="secondName"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('secondName')?.invalid && registerUserForm.get('secondName')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('secondName')?.errors?.['required']">Second Name is required.</span>
+              <span *ngIf="registerUserForm.get('secondName')?.errors?.['stringOnly']">Second Name must contain only letters.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            <input
+              class="input100"
+              type="email"
+              name="email"
+              placeholder="Email"
+              formControlName="email"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('email')?.invalid && registerUserForm.get('email')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('email')?.errors?.['required']">Email is required.</span>
+              <span *ngIf="registerUserForm.get('email')?.errors?.['email']">Email must be a valid email address.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Password is required">
+            <input
+              class="input100"
+              type="password"
+              name="password"
+              placeholder="Password"
+              formControlName="password"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('password')?.invalid && registerUserForm.get('password')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('password')?.errors?.['required']">Password is required.</span>
+              <span *ngIf="registerUserForm.get('password')?.errors?.['password']">
+                Password must be between 8 and 16 characters and contain at least one special character.
+              </span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Password confirmation is required">
+            <input
+              class="input100"
+              type="password"
+              name="confirm-password"
+              placeholder="Confirm Password"
+              formControlName="confirmPassword"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('confirmPassword')?.invalid && registerUserForm.get('confirmPassword')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</span>
+              <span *ngIf="registerUserForm.get('confirmPassword')?.errors?.['confirmPassword']">Passwords must match.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Address is required">
+            <input
+              class="input100"
+              type="text"
+              name="address"
+              placeholder="Address Line"
+              formControlName="address"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('address')?.invalid && registerUserForm.get('address')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('address')?.errors?.['required']">Address is required.</span>
+              <span *ngIf="registerUserForm.get('address')?.errors?.['stringOnly']">Address must contain only letters.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Region is required">
+            <input
+              class="input100"
+              type="text"
+              name="region"
+              placeholder="Region"
+              formControlName="region"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('region')?.invalid && registerUserForm.get('region')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('region')?.errors?.['required']">Region is required.</span>
+              <span *ngIf="registerUserForm.get('region')?.errors?.['stringOnly']">Region must contain only letters.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="City is required">
+            <select class="input100 custom-select city-select" name="city" formControlName="city">
+              <option value="" disabled selected>Select City</option>
+              <option value="Sousse">Sousse</option>
+              <option value="Monastir">Monastir</option>
+              <option value="Mahdia">Mahdia</option>
+              <option value="Sfax">Sfax</option>
+              <option value="Kairouen">Kairouen</option>
+              <option value="Tozeur">Tozeur</option>
+              <option value="Ariana">Ariana</option>
+              <option value="Beja">Beja</option>
+              <option value="Nabeul">Nabeul</option>
+              <option value="Jerba">Jerba</option>
+              <option value="Binzart">Binzart</option>
+            </select>
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('city')?.invalid && registerUserForm.get('city')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('city')?.errors?.['required']">City is required.</span>
+            </div>
+          </div>
+  
+          <div class="wrap-input100 validate-input" data-validate="Zip/Postal Code is required">
+            <input
+              class="input100"
+              type="text"
+              name="zip-code"
+              placeholder="Zip Code"
+              formControlName="zipCode"
+            />
+            <span class="focus-input100"></span>
+            <div *ngIf="registerUserForm.get('zipCode')?.invalid && registerUserForm.get('zipCode')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('zipCode')?.errors?.['required']">Zip Code is required.</span>
+              <span *ngIf="registerUserForm.get('zipCode')?.errors?.['zipCode']">Zip Code must be exactly 4 digits.</span>
+            </div>
+          </div>
+  
+          <div class="contact100-form-checkbox m-l-4">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="agree-terms" formControlName="agreeTerms">
+            <label class="label-checkbox100" for="ckb1">
+              I agree to the <a href="#">Terms and Conditions</a>
+            </label>
+            <div *ngIf="registerUserForm.get('agreeTerms')?.invalid && registerUserForm.get('agreeTerms')?.touched" class="error-message">
+              <span *ngIf="registerUserForm.get('agreeTerms')?.errors?.['required']">You must agree to the terms and conditions.</span>
+            </div>
+          </div>
+  
+          <div class="container-login100-form-btn">
+            <button type="submit" class="login100-form-btn">
+              Register
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-</div>
+  </div>
+  
+  <style>
+    .error-message {
+      color: red !important;
+      font-size: 11px !important;
+      margin-top: 4px !important;
+    }
+  </style>  

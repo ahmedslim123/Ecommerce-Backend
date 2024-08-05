@@ -13,12 +13,14 @@ import { FooterComponent } from "./components/Front/footer/footer.component";
 import { HomeComponent } from "./components/Front/home/home.component";
 import { HomePageComponent } from './components/Front/home-page/home-page.component';
 import { UserService } from './services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet,RouterLink,RouterLinkActive, HomePageComponent, HeaderComponent, CategoriesComponent, ProductComponent, BannerComponent, TrendComponent, DiscountComponent, ServicesComponent, InstagramComponent, FooterComponent, HomeComponent],
+  imports: [CommonModule, HttpClientModule ,ReactiveFormsModule , RouterOutlet,RouterLink,RouterLinkActive, HomePageComponent, HeaderComponent, CategoriesComponent, ProductComponent, BannerComponent, TrendComponent, DiscountComponent, ServicesComponent, InstagramComponent, FooterComponent, HomeComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   providers: [UserService]

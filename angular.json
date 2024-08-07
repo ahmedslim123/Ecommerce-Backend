@@ -68,6 +68,10 @@
               "src/assets/vendor/select2/select2.min.css",
               "src/assets/vendor/daterangepicker/daterangepicker.css",
               "src/assets/css/util.css",
+              "src/assets/css/soft-ui-dashboard.min.css",
+              "src/assets/css/soft-ui-dashboard.css",
+              "src/assets/css/nucleo-svg.css",
+              "src/assets/css/nucleo-icons.css",
 
               "src/styles.css"
               
@@ -89,7 +93,16 @@
               "src/assets/vendor/daterangepicker/moment.min.js",
               "src/assets/vendor/daterangepicker/daterangepicker.js",
               "src/assets/vendor/countdowntime/countdowntime.js",
-               
+              "src/assets/js/soft-ui-dashboard.min.js",
+              "src/assets/js/soft-ui-dashboard.js",
+              "src/assets/js/plugins/bootstrap-notify.js",
+              "src/assets/js/plugins/perfect-scrollbar.min.js",
+              "src/assets/js/plugins/smooth-scrollbar.min.js",
+              "src/assets/js/plugins/Chart.extension.js",
+              "src/assets/js/plugins/chartjs.min.js",
+              "src/assets/js/core/bootstrap.bundle.min.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/core/popper.min.js",
               "src/assets/js/main.js"
             ],
             "server": "src/main.server.ts",
@@ -163,6 +176,10 @@
               "src/assets/css/slicknav.min.css",
               "node_modules/owl.carousel/dist/assets/owl.carousel.css",
               "node_modules/owl.carousel/dist/assets/owl.theme.default.css",
+              "src/assets/css/soft-ui-dashboard.min.css",
+              "src/assets/css/soft-ui-dashboard.css",
+              "src/assets/css/nucleo-svg.css",
+              "src/assets/css/nucleo-icons.css",
              
               "src/styles.css"
               
@@ -184,6 +201,16 @@
               "src/assets/vendor/daterangepicker/moment.min.js",
               "src/assets/vendor/daterangepicker/daterangepicker.js",
               "src/assets/vendor/countdowntime/countdowntime.js",
+              "src/assets/js/soft-ui-dashboard.min.js",
+              "src/assets/js/soft-ui-dashboard.js",
+              "src/assets/js/plugins/bootstrap-notify.js",
+              "src/assets/js/plugins/perfect-scrollbar.min.js",
+              "src/assets/js/plugins/smooth-scrollbar.min.js",
+              "src/assets/js/plugins/Chart.extension.js",
+              "src/assets/js/plugins/chartjs.min.js",
+              "src/assets/js/core/bootstrap.bundle.min.js",
+              "src/assets/js/core/bootstrap.min.js",
+              "src/assets/js/core/popper.min.js",
               
               "src/assets/js/main.js"
             ]

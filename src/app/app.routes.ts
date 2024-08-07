@@ -12,6 +12,7 @@ import { CheckoutComponent } from './components/Front/checkout/checkout.componen
 import { ShopCartComponent } from './components/Front/shop-cart/shop-cart.component';
 import { RegisterComponent } from './components/Front/register/register.component';
 import { LoginComponent } from './components/Front/login/login.component';
+import { HomeBackComponent } from './components/Back/home-back/home-back.component';
 
 export const routes: Routes = [
   
@@ -25,6 +26,7 @@ export const routes: Routes = [
     { path: 'checkout', component: CheckoutComponent },
     { path: 'shop-cart', component: ShopCartComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'homeBack', component: HomeBackComponent },
     { path: 'register', component: RegisterComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

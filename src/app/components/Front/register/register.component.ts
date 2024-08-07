@@ -65,7 +65,7 @@ export class RegisterComponent implements OnInit {
       confirmPassword: [null, [Validators.required, confirmPasswordValidator]],
       address: [null, [Validators.required, stringValidator]],
       region: [null, [Validators.required, stringValidator]],
-      city: [null, [Validators.required]],
+      city: ['', Validators.required],
       zipCode: [null, [Validators.required, zipCodeValidator]],
       agreeTerms: [null, [Validators.requiredTrue]]
     });

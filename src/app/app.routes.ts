@@ -17,7 +17,7 @@ import { HomeBackComponent } from './components/Back/home-back/home-back.compone
 export const routes: Routes = [
   
    
-    {path: '', component: HomePageComponent,},
+    {path: '', component: HomeBackComponent,},
     { path: 'shop', component: ShopComponent },
     { path: 'product-detail', component: ProductDetailComponent },
     { path: 'blog-detail', component: BlogDetailComponent },

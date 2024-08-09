@@ -13,6 +13,10 @@ import { ShopCartComponent } from './components/Front/shop-cart/shop-cart.compon
 import { RegisterComponent } from './components/Front/register/register.component';
 import { LoginComponent } from './components/Front/login/login.component';
 import { HomeBackComponent } from './components/Back/home-back/home-back.component';
+import { TablesComponent } from './components/Back/tables/tables.component';
+import { ProfileComponent } from './components/Back/profile/profile.component';
+import { RtlComponent } from './components/Back/rtl/rtl.component';
+import { BillingComponent } from './components/Back/billing/billing.component';
 
 export const routes: Routes = [
   
@@ -28,5 +32,9 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'homeBack', component: HomeBackComponent },
     { path: 'register', component: RegisterComponent },
+    { path: 'tables', component: TablesComponent },
+    { path: 'profile', component: ProfileComponent },
+    { path: 'rtl', component: RtlComponent },
+    { path: 'billing', component: BillingComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

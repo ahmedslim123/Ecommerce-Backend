@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet, Router } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
@@ -56,7 +56,7 @@ const zipCodeValidator: ValidatorFn = (control: AbstractControl): ValidationErro
 export class RegisterComponent implements OnInit {
   registerUserForm: FormGroup;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(private userService: UserService, private fb: FormBuilder,private router: Router) {
     this.registerUserForm = this.fb.group({
       firstName: [null, [Validators.required, stringValidator]],
       secondName: [null, [Validators.required, stringValidator]],
@@ -80,6 +80,7 @@ export class RegisterComponent implements OnInit {
       this.userService.registerUser(this.registerUserForm.value).subscribe(
         response => {
           console.log('User registered successfully:', response);
+          this.router.navigate(['/login']);  // Navigate to login after successful registration
         },
         error => {
           console.error('Registration failed:', error);

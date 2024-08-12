@@ -21,7 +21,7 @@ import { BillingComponent } from './components/Back/billing/billing.component';
 export const routes: Routes = [
   
    
-    {path: '', component: HomeBackComponent,},
+    {path: '', component: HomePageComponent,},
     { path: 'shop', component: ShopComponent },
     { path: 'product-detail', component: ProductDetailComponent },
     { path: 'blog-detail', component: BlogDetailComponent },

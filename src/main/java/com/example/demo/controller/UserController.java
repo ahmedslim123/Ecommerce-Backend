@@ -12,42 +12,41 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class UserController {
+
     @Autowired
     private UserService userService;
-    @CrossOrigin(origins = "http://localhost:4200")
+
+    @GetMapping("/users")
+    public ResponseEntity<List<User>> getAllUsers() {
+        List<User> users = userService.findAll();
+        return ResponseEntity.ok(users);
+    }
+
+    @GetMapping("/user/{id}")
+    public ResponseEntity<User> getUserById(@PathVariable int id) {
+        User user = userService.getUserById(id);
+        return ResponseEntity.ok(user);
+    }
+
     @PostMapping("/user")
     public ResponseEntity<User> registerUser(@RequestBody User user) {
         userService.addUser(user);
         return ResponseEntity.ok(user);
     }
-
-    @RequestMapping("/Userss")
-    public List<User> getAllUsers() {
-        return userService.findAll();
-    }
-
-    @RequestMapping("/Users")
-    public List<User> getUsers() {
-        return userService.getUser();
-    }
-
     @RequestMapping(method = RequestMethod.POST, value = "/Users")
     public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-    @RequestMapping(method = RequestMethod.PUT, value = "/User/{id}")
-    public void updateUser(@RequestBody User user, @PathVariable int id) {
+    @PutMapping("/user/{id}")
+    public ResponseEntity<Void> updateUser(@RequestBody User user, @PathVariable int id) {
         userService.updateUser(user, id);
+        return ResponseEntity.ok().build();
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, value = "/User/{id}")
-    public void deleteUser(@PathVariable int id) {
+    @DeleteMapping("/user/{id}")
+    public ResponseEntity<Void> deleteUser(@PathVariable int id) {
         userService.deleteUser(id);
-    }
-
-    @RequestMapping("/User/{id}")
-    public User getUserById(@PathVariable int id) {
-        return userService.getUserById(id);
+        return ResponseEntity.ok().build();
     }
 }

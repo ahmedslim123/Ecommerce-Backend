@@ -9,3 +9,12 @@
 .font-weight-bold{
     font-family:cursive;
 }
+.btn-danger{
+    margin-left: 10px;
+}
+th{
+    text-align: center;
+}
+.mb-0{
+    text-align: center;
+}

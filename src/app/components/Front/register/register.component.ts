@@ -48,7 +48,7 @@ const zipCodeValidator: ValidatorFn = (control: AbstractControl): ValidationErro
     RouterLinkActive,
     ReactiveFormsModule,
     HttpClientModule,
-    CommonModule // Import CommonModule here
+    CommonModule 
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']

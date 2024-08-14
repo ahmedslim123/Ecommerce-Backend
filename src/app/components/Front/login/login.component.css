@@ -454,11 +454,11 @@
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
+    
+    
     width: 100%;
     height: 80px;
-    position: relative;
+    
     border: 1px solid #e6e6e6;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -553,20 +553,16 @@
     transform: scale(1);
   }
   
-  .input100:focus {
-    height: 48px;
-  }
+ 
   
   .input100:focus + .focus-input100 + .label-input100 {
-    top: 14px;
+  
     font-size: 13px;
   }
   
-  .has-val {
-    height: 48px !important;
-  }
   
-  .has-val + .focus-input100 + .label-input100 {
+  
+  .has-val + .focus-input100 + .input100::placeholder {
     top: 14px;
     font-size: 13px;
   }
@@ -933,5 +929,65 @@
     100% {
       background-image: url('/assets/images/login back5.png');
       filter: blur(0);
+    }
+  }
+
+
+  /* eye toggle password */
+  .eyePass{
+    display: flex !important;
+  }
+  .contr {
+    --color: #a5a5b0;
+    --size: 24px;
+    display: flex;
+    justify-content:flex-end;
+    margin-right: 20px;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: var(--size);
+    user-select: none;
+    fill: var(--color);
+  }
+  
+  .contr .eye {
+    position: absolute;
+    animation: keyframes-fill .5s;
+  }
+  
+  .contr .eye-slash {
+    position: absolute;
+    animation: keyframes-fill .5s;
+    display: none;
+  }
+  
+  /* ------ On check event ------ */
+  .contr input:checked ~ .eye {
+    display: none;
+  }
+  
+  .contr input:checked ~ .eye-slash {
+    display: block;
+  }
+  
+  /* ------ Hide the default checkbox ------ */
+  .contr input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* ------ Animation ------ */
+  @keyframes keyframes-fill {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  
+    50% {
+      transform: scale(1.2);
     }
   }

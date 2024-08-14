@@ -19,7 +19,14 @@ export class User {
       address: string,
       region: string,
       city: string,
-      zipCode: string
+      zipCode: string,
+      public editingFirstName?: boolean,
+      public editingSecondName?: boolean,
+      public editingEmail?: boolean,
+      public editingAddress?: boolean,
+      public editingRegion?: boolean,
+      public editingCity?: boolean,
+      public editingZipCode?: boolean
     ) {
       this.id = id;
       this.firstName = firstName;
@@ -31,5 +38,7 @@ export class User {
       this.city = city;
       this.zipCode = zipCode;
     }
+    [key: string]: any;
   }
+  
   

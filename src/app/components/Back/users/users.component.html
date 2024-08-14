@@ -11,6 +11,56 @@
                     <div class="d-flex justify-content-end mb-3">
                         <button class="btn btn-success btn-custom" (click)="openAddUserModal()">Add User</button>
                     </div>
+
+                    <!-- Add User Modal -->
+<div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addUserForm" (ngSubmit)="onSubmitAddUser()">
+                    <div class="mb-3">
+                        <label for="firstName" class="form-label">First Name</label>
+                        <input type="text" id="firstName" class="form-control" formControlName="firstName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="secondName" class="form-label">Second Name</label>
+                        <input type="text" id="secondName" class="form-control" formControlName="secondName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" id="email" class="form-control" formControlName="email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <input type="text" id="address" class="form-control" formControlName="address">
+                    </div>
+                    <div class="mb-3">
+                        <label for="region" class="form-label">Region</label>
+                        <input type="text" id="region" class="form-control" formControlName="region">
+                    </div>
+                    <div class="mb-3">
+                        <label for="city" class="form-label">City</label>
+                        <input type="text" id="city" class="form-control" formControlName="city">
+                    </div>
+                    <div class="mb-3">
+                        <label for="zipCode" class="form-label">Zip Code</label>
+                        <input type="text" id="zipCode" class="form-control" formControlName="zipCode">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save User</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
                     <table class="table table-hover">
                         <thead class="table-dark">
                             <tr>
@@ -27,20 +77,41 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let user of users">
-                                <td>{{ user.id }}</td>
-                                <td>{{ user.firstName }}</td>
-                                <td>{{ user.secondName }}</td>
-                                <td>{{ user.email }}</td>
-                                <td>{{ user.address }}</td>
-                                <td>{{ user.region }}</td>
-                                <td>{{ user.city }}</td>
-                                <td>{{ user.zipCode }}</td>
-                                <td>
-                                    <button class="btn btn-warning btn-sm" (click)="openEditUserModal(user)">Edit</button>
-                                    <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
-                                </td>
+                              <td>{{ user.id }}</td>
+                              <td (dblclick)="editField(user, 'firstName')">
+                                <input *ngIf="user.editingFirstName" [(ngModel)]="user.firstName" (blur)="saveField(user, 'firstName')" (keydown.enter)="saveField(user, 'firstName')" />
+                                <span *ngIf="!user.editingFirstName">{{ user.firstName }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'secondName')">
+                                <input *ngIf="user.editingSecondName" [(ngModel)]="user.secondName" (blur)="saveField(user, 'secondName')" (keydown.enter)="saveField(user, 'secondName')" />
+                                <span *ngIf="!user.editingSecondName">{{ user.secondName }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'email')">
+                                <input *ngIf="user.editingEmail" [(ngModel)]="user.email" (blur)="saveField(user, 'email')" (keydown.enter)="saveField(user, 'email')" />
+                                <span *ngIf="!user.editingEmail">{{ user.email }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'address')">
+                                <input *ngIf="user.editingAddress" [(ngModel)]="user.address" (blur)="saveField(user, 'address')" (keydown.enter)="saveField(user, 'address')" />
+                                <span *ngIf="!user.editingAddress">{{ user.address }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'region')">
+                                <input *ngIf="user.editingRegion" [(ngModel)]="user.region" (blur)="saveField(user, 'region')" (keydown.enter)="saveField(user, 'region')" />
+                                <span *ngIf="!user.editingRegion">{{ user.region }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'city')">
+                                <input *ngIf="user.editingCity" [(ngModel)]="user.city" (blur)="saveField(user, 'city')" (keydown.enter)="saveField(user, 'city')" />
+                                <span *ngIf="!user.editingCity">{{ user.city }}</span>
+                              </td>
+                              <td (dblclick)="editField(user, 'zipCode')">
+                                <input *ngIf="user.editingZipCode" [(ngModel)]="user.zipCode" (blur)="saveField(user, 'zipCode')" (keydown.enter)="saveField(user, 'zipCode')" />
+                                <span *ngIf="!user.editingZipCode">{{ user.zipCode }}</span>
+                              </td>
+                              <td>
+                                <button class="btn btn-warning btn-sm" (click)="editField(user, 'firstName')">Edit</button>
+                                <button class="btn btn-danger btn-sm" (click)="deleteUser(user.id)">Delete</button>
+                              </td>
                             </tr>
-                        </tbody>
+                          </tbody>
                     </table>
                 </div>
             </div>

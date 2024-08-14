@@ -34,7 +34,9 @@ public class UserService {
         logger.info("Adding user: {}", user);
         userRepository.save(user);
     }
-
+    public User findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
     public void updateUser(User user, int id) {
         userRepository.save(user);
     }
@@ -46,5 +48,16 @@ public class UserService {
     public User getUserById(int id) {
         Optional<User> optionalUser = userRepository.findById(id);
         return optionalUser.orElse(null);
+    }
+    public boolean authenticateUser(String email, String password) {
+        // Fetch the user from the database by email
+        User user = userRepository.findByEmail(email);
+
+        // Check if the user exists and if the password matches
+        if (user != null && user.getPassword().equals(password)) {
+            return true; // Authentication successful
+        }
+
+        return false; // Authentication failed
     }
 }

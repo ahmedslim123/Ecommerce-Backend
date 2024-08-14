@@ -18,6 +18,7 @@ import { ProfileComponent } from './components/Back/profile/profile.component';
 import { RtlComponent } from './components/Back/rtl/rtl.component';
 import { BillingComponent } from './components/Back/billing/billing.component';
 import { UsersComponent } from './components/Back/users/users.component';
+import { PublicContentComponent } from './components/Front/public-content/public-content.component';
 
 export const routes: Routes = [
   
@@ -38,5 +39,6 @@ export const routes: Routes = [
     { path: 'rtl', component: RtlComponent },
     { path: 'billing', component: BillingComponent },
     { path: 'users', component: UsersComponent },
+    { path: 'public-content', component: PublicContentComponent },
     { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

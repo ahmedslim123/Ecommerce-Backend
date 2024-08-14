@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../../../services/user.service';
+import { MyHttpClientService } from '../../../services/my-http-client.service';
 import { User } from '../../../model/user.model';
 
 @Component({
@@ -20,13 +21,14 @@ import { User } from '../../../model/user.model';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
   errorMessage: string | null = null;
   passwordFieldType: string = 'password';
+  url: string = "";
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private router: Router, private http: MyHttpClientService) { }
 
   onLogin() {
     this.userService.loginUser(this.email, this.password).subscribe(
@@ -46,5 +48,16 @@ export class LoginComponent {
   togglePasswordVisibility() {
     this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password';
   }
+  ngOnInit(): void {
+    this.http.get('/auth/url').subscribe((data: any) => {
+      this.url = data.authURL;
+    });
+  }
+  
+ redirectToGoogleAuth() {
+  if (this.url) {
+    window.location.href = this.url; // Redirect to Google Auth URL
+  }
+}
 }
 
